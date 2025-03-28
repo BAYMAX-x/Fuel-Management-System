@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Register</title>
+  <link rel="stylesheet" href="css/Petrol.css">
+  <script>
+    function calculateTotal() {
+      var quantity = parseFloat(document.getElementById("quantity").value);
+
+      // Check if quantity is a valid number
+      if (!isNaN(quantity)) {
+        var fuelType = document.getElementById("fueltype").value;
+        var unitPrice;
+
+        // Set unit price based on fuel type
+        switch (fuelType) {
+          case "PetrolOctane 92":
+            unitPrice = 356.00; // Adjust the price as needed
+            break;
+          case "Octane 95":
+            unitPrice = 423.00; // Adjust the price as needed
+            break;
+
+          default:
+            unitPrice = 0;
+        }
+
+        // Calculate total amount
+        var totalAmount = quantity * unitPrice;
+
+        // Update the bill section with the total amount
+        document.getElementById("bill").innerHTML =
+          "Total Amount: $" + totalAmount.toFixed(2);
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <div class="center">
+    <h1>Your Order </h1>
+    <form method="post" action="Oder.php">
+      <div class="text_field">
+        <label>ID Number</label>
+        <input type="text" required id="idnumber" name="Idno" />
+        <span></span>
+      <div class="text_field">
+        <label for="fueltype">Fuel Type</label>
+        <select id="fueltype" name="FuelType" required>
+          <option value="PetrolOctane 92">PetrolOctane 92</option>
+          <option value="Octane 95">Octane 95</option>
+          
+          <!-- Add more options as needed -->
+        </select>
+      
+
+      
+        <label for="vehicletype">Vehicle Type</label>
+        <select id="vehicletype" name="VehicleType" required>
+          <option value="Motorcycle">Motorcycle</option>
+          <option value="Cars">Cars</option>
+          <option value="Van">Van</option>
+          <option value="Lorry">Lorry</option>
+          <!-- Add more options as needed -->
+        </select>
+      
+     
+        <label>Quantity</label>
+        <input type="text" required id="quantity" name="Quantity" oninput="calculateTotal()" />
+        <span></span>
+        
+     
+
+      <!-- Updated Input Field for Booking Date -->
+      
+        <label>Booking Date</label>
+        <input type="date" required id="bookingdate" name="BookingDate" />
+        <span></span>
+        
+      </div>
+
+      <!-- Bill Section -->
+      <div id="bill"></div> <br> <br>
+
+      <center>
+      <input class="button" type="submit" value="Register" /> </center>
+    </form>
+  </div>
+</body>
+
+</html>

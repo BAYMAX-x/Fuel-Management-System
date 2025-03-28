@@ -1,0 +1,24 @@
+CREATE DATABASE UpulKumaraFuelStation;
+
+
+CREATE TABLE User(
+Idno int primary key,
+Address varchar(100),
+Mobile int,
+Email varchar(100),
+Password Varchar(100)
+);
+
+
+
+
+CREATE TABLE Summ(
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    Idno INT,
+    FuelType VARCHAR(100),
+    VehicleType VARCHAR(100),
+    Quantity INT,
+    BookingDate int
+    TotalAmount float
+    
+);
